@@ -5,13 +5,11 @@ interface Props {
   modal: React.ReactNode;
 }
 
-export default function BeforeLoginLayout({ children, modal }: Props) {
+export default function TweetModalLayout({ children, modal }: Props) {
   return (
     <div>
-      {/* app/(beforeLogin)/page.tsx */}
       {children}
 
-      {/* app/(beforeLogin)/@modal/i/flow/login/page.tsx */}
       {modal}
     </div>
   );

@@ -21,11 +21,11 @@
 
 - "/" -> "/i/flow/login"으로 이동시 기존의 <Home />위에 <Login /> 팝업이 뜨도록 구현가능하다.
 - 이는 "/i/flow/login"로 이동시 route를 가로채어 @modal 내부의 <Login />을 보여주는것으로, 이동 후 새로고침시에는 (beforeLogin)/i 내부의 <Login />을 보여준다.
-- 좀 어려운데 특별한 상황에서 사용될듯..
+- 어느 페이지에서든 동일한 팝업을 띄우는경우 유용하다. 모든 페이지에 동일한 팝업 로직을 짤 필요없이, 해당 url로 navigation처리만 하면되기때문.
 
 - `_폴더명`는 private folder로 공통으로 사용되는 폴더가 있다면 \*로 묶어서 사용가능. "i/flow/login" 로직이 공통으로 쓰임
 
-### useRouter
+### useRouter ("next/navigation")
 
 A -> B -> C일때, B에서 useRouter를 사용했을때를 가정
 

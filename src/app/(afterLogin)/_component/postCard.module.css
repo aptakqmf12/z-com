@@ -1,0 +1,17 @@
+.card {
+  border: 1px black solid;
+  border-radius: 4px;
+}
+
+.top {
+}
+.thumb {
+}
+.creator {
+}
+.time {
+  font-size: 12px;
+  color: gray;
+}
+.contentImage {
+}

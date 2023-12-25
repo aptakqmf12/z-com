@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  padding: 12px;
+}
+
+.container .thumb {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.container form textarea {
+  display: inline-block;
+  width: 100%;
+  background-color: transparent;
+}
+
+.utils {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.utils .gallary {
+}
+
+.utils .gallary input[type="file"] {
+  display: none;
+}

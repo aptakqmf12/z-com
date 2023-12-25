@@ -1,0 +1,35 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal_close {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.modal_body {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  min-width: 500px;
+  min-height: 300px;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  background-color: #cacaca;
+}
+
+.modal_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+  color: #000;
+}

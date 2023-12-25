@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  width: 250px;
+}
+
+.leftInner {
+  position: fixed;
+  width: 250px;
+  height: 100dvh;
+  background-color: blue;
+}
+
+.center {
+  background-color: red;
+  height: 5000px;
+  width: calc(100% - 500px);
+  margin: 0 auto;
+}
+
+.right {
+  width: 250px;
+}
+
+.rightInner {
+  width: 250px;
+  height: 100%;
+  background-color: orange;
+}
+
+.rightSearch {
+  position: fixed;
+  top: 0;
+  height: 50px;
+}
+.rightSearch input {
+  width: 100%;
+}
+
+.rightContnet {
+  background-color: rgb(219, 219, 219);
+  height: calc(100% - 50px);
+  padding-top: 50px;
+}

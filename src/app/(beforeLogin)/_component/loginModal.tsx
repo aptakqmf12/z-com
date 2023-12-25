@@ -8,6 +8,8 @@ export default function LoginModal() {
   return (
     <div className={styles.modal}>
       <div className={styles.modal_body}>
+        <h2>Login</h2>
+
         <form className={styles.modal_form}>
           <label>
             <span>id</span>

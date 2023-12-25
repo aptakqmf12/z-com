@@ -1,0 +1,34 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btns {
+  display: flex;
+  gap: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #ffffff40;
+}

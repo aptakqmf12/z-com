@@ -1,0 +1,17 @@
+.tab {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.item.active {
+  border-bottom: 1px blue solid;
+}
