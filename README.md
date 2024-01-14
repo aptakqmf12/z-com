@@ -44,3 +44,11 @@ import { useSelectedSegment, useSelectedSegments} from "next/navigation"
 const segment = useSelectedSegment(); // "depth1"
 const segments = useSelectedSegments() // ["depth1", "depth2"]
 ```
+
+## Server Component && Client Component
+
+- 서버 컴포넌트에서는 클라이언트 컴포넌트를 import하여 사용은 가능.
+- 클라이언트 컴포넌트에서 서버 컴포넌트를 import 하면 import해온 서버컴포넌트가 클라이언트 컴포넌트로 변경됨
+- 만약 부모가 클라이언트 컴포넌트, 자식이 서버 컴포넌트일때는 부모를 따로 컴포넌트로 분리하여 `children`을 props로 받도록 만들어 넘겨준다.
+
+### onClickCapture 라는것이 있음

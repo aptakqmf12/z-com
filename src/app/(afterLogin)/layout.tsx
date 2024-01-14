@@ -1,5 +1,6 @@
 import styles from "./layout.module.css";
 import LeftNav from "./_component/leftNav";
+import RightSection from "./_component/rightSection";
 
 interface Props {
   children: React.ReactNode;
@@ -17,23 +18,7 @@ export default function AfterLoginLayout({ children, modal }: Props) {
 
       <section className={styles.center}>{children}</section>
 
-      <div className={styles.right}>
-        <div className={styles.rightInner}>
-          <form className={styles.rightSearch}>
-            <input />
-          </form>
-
-          <div className={styles.rightContnet}>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-          </div>
-        </div>
-      </div>
+      <RightSection />
 
       {modal}
     </div>

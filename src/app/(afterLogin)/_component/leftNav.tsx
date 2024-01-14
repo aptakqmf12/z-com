@@ -9,40 +9,51 @@ export default function LeftNav() {
 
   const DATA = [
     {
-      label: "Home",
+      label: "홈",
       href: "/home",
       segment: "home",
     },
     {
-      label: "Article",
+      label: "게시글",
       href: "/name/status/id",
       segment: "name",
     },
     {
-      label: "Explore",
+      label: "탐험",
       href: "/explore",
       segment: "explore",
     },
     {
-      label: "Tweet",
-      href: "/compose/tweet",
-      segment: "compose",
+      label: "검색",
+      href: "/search",
+      segment: "search",
     },
   ];
 
+  const handleLogout = () => {};
+
   return (
     <ul className={styles.navList}>
-      {DATA.map((obj, i) => {
-        const isActive = obj.segment === segment;
+      <>
+        {DATA.map((obj, i) => {
+          const isActive = obj.segment === segment;
 
-        return (
-          <li key={i}>
-            <Link style={isActive ? { color: "yellow" } : {}} href={obj.href}>
-              {obj.label}
-            </Link>
-          </li>
-        );
-      })}
+          return (
+            <li key={i}>
+              <Link style={isActive ? { color: "yellow" } : {}} href={obj.href}>
+                {obj.label}
+              </Link>
+            </li>
+          );
+        })}
+        <li className={styles.tweetBtn}>
+          <Link href={"/compose/tweet"}>게시하기</Link>
+        </li>
+      </>
+
+      <li className={styles.logoutBtn} onClick={handleLogout}>
+        로그아웃
+      </li>
     </ul>
   );
 }
