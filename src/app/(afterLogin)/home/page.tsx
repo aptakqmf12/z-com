@@ -14,7 +14,7 @@ export default function Page() {
         <PostForm />
 
         <ul className={styles.postList}>
-          {Array.from({ length: 20 }).map((_, i) => (
+          {Array.from({ length: 200 }).map((_, i) => (
             <PostCard key={i} />
           ))}
         </ul>

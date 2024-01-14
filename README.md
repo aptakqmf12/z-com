@@ -52,3 +52,9 @@ const segments = useSelectedSegments() // ["depth1", "depth2"]
 - 만약 부모가 클라이언트 컴포넌트, 자식이 서버 컴포넌트일때는 부모를 따로 컴포넌트로 분리하여 `children`을 props로 받도록 만들어 넘겨준다.
 
 ### onClickCapture 라는것이 있음
+
+### Array.prototype.at()
+
+- 0 또는 양수일땐 array index를 나타내고
+- 음수일땐 배열의 가장 뒤에서 인덱싱을 한다.
+- arr[arr.length - 1]이 arr.at(-1)로 대체가능.

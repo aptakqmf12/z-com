@@ -1,0 +1,16 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+}
+.left {
+}
+.right {
+}
+
+.right .name {
+  color: #eee;
+}
+.right .date {
+  font-weight: 600;
+  color: #000;
+}

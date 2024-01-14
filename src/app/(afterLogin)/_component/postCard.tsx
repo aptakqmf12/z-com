@@ -6,18 +6,10 @@ import "dayjs/locale/ko";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { faker } from "@faker-js/faker";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
-
-const MOCK = {
-  id: 1,
-  creator: "작성자명",
-  thumb: "/profile.png",
-  contentImage: "/profile.png",
-  title: "제목입니다",
-  createAt: new Date("2023-12-10"),
-};
 
 export default function PostCard() {
   const router = useRouter();
@@ -26,7 +18,7 @@ export default function PostCard() {
     router.push("/explore");
   };
   const handleClickCreator = () => {
-    router.push(`/${MOCK.creator}/status/${MOCK.id}`);
+    router.push(`/${faker.person.fullName()}/status/${1}`);
   };
 
   return (
@@ -34,21 +26,26 @@ export default function PostCard() {
       <div className={styles.top}>
         <div className="flex_row">
           <div className={styles.thumb}>
-            <Image src={MOCK.thumb} width={20} height={20} alt="profile" />
+            <Image src={"/profile.png"} width={20} height={20} alt="profile" />
           </div>
 
           <div className={styles.creator} onClick={handleClickCreator}>
-            {MOCK.creator}
+            {faker.person.fullName()}
           </div>
 
           <div className={styles.time}>
-            {dayjs(MOCK.createAt).fromNow(true)}
+            {dayjs(faker.date.past()).fromNow(true)}
           </div>
         </div>
       </div>
 
       <div className={styles.contentImage}>
-        <Image src={MOCK.contentImage} width={100} height={100} alt="profile" />
+        <Image
+          src={faker.image.urlLoremFlickr()}
+          width={100}
+          height={100}
+          alt="profile"
+        />
       </div>
     </li>
   );

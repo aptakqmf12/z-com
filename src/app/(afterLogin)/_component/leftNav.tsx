@@ -14,19 +14,14 @@ export default function LeftNav() {
       segment: "home",
     },
     {
-      label: "게시글",
-      href: "/name/status/id",
-      segment: "name",
-    },
-    {
-      label: "탐험",
+      label: "탐색하기",
       href: "/explore",
       segment: "explore",
     },
     {
-      label: "검색",
-      href: "/search",
-      segment: "search",
+      label: "쪽지",
+      href: "/messages",
+      segment: "messages",
     },
   ];
 
