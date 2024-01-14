@@ -53,8 +53,15 @@ const segments = useSelectedSegments() // ["depth1", "depth2"]
 
 ### onClickCapture 라는것이 있음
 
+- card안에 title을 클릭했을때만 별도의 navigate를 걸어주고싶은상황에 유용함! (ex. card를 눌리면 상세페이지로, title을 눌리면 유저페이지로)
+
 ### Array.prototype.at()
 
 - 0 또는 양수일땐 array index를 나타내고
 - 음수일땐 배열의 가장 뒤에서 인덱싱을 한다.
 - arr[arr.length - 1]이 arr.at(-1)로 대체가능.
+
+### .env
+
+- NEXT_PUBLIC_NAME = 브라우저에서 접근가능한 환경변수
+- NAME = 서버에서만 접근가능한 환경변수
