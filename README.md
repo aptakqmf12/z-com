@@ -65,3 +65,23 @@ const segments = useSelectedSegments() // ["depth1", "depth2"]
 
 - NEXT_PUBLIC_NAME = 브라우저에서 접근가능한 환경변수
 - NAME = 서버에서만 접근가능한 환경변수
+
+# react-query (v5)
+
+### 설정
+
+```
+// home/page.tsx
+const queryClient = new QueryClient();
+await queryClient.prefetchQuery({queryKey:["a","b"] , queryFn:fetchData});
+const dehydrateState = dehydrate(queryClient);
+
+return (
+  <HydrateBoundary state={dehydrateState}>
+    {children}
+  <HydrateBoundary/>
+)
+
+// other.tsx
+queryClient.getQueryData(["a","b"] )
+```

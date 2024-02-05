@@ -1,6 +1,6 @@
 "use client";
 import { useState, ChangeEvent } from "react";
-import styles from "./login.module.css";
+import styles from "./modal.module.css";
 
 export default function LoginModal() {
   const [id, setId] = useState("");

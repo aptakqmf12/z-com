@@ -17,7 +17,7 @@ export default function Intro() {
           <Link className={styles.btn} href={"/login"}>
             로그인
           </Link>
-          <Link className={styles.btn} href={"/i/flow/signup"}>
+          <Link className={styles.btn} href={"/signup"}>
             회원가입
           </Link>
         </div>
