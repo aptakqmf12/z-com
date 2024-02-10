@@ -7,6 +7,15 @@ const User = [
   { id: "leoturtle", nickname: "레오", image: faker.image.avatar() },
 ];
 
+function generateDate() {
+  const lastWeek = new Date(Date.now());
+  lastWeek.setDate(lastWeek.getDate() - 7);
+  return faker.date.between({
+    from: lastWeek,
+    to: Date.now(),
+  });
+}
+
 export const handlers = [
   http.post("/api/login", () => {
     console.log("로그인");
@@ -35,5 +44,35 @@ export const handlers = [
     //     "Set-Cookie": "connect.sid=msw-cookie;HttpOnly;Path=/;Max-Age=0",
     //   },
     // });
+  }),
+
+  http.get("/api/posts/followings", ({ request }) => {
+    return HttpResponse.json(
+      Array.from({ length: 10 }, (_, i) => ({
+        postId: i + 1,
+        User: User[0],
+        content: `${i + 1} Stop following me. I'm too famous.`,
+        Images: [{ imageId: i + 1, link: faker.image.urlLoremFlickr() }],
+        createdAt: generateDate(),
+      }))
+    );
+  }),
+
+  http.get("/api/posts/recommends", ({ request }) => {
+    const url = new URL(request.url);
+    const cursor = parseInt(url.searchParams.get("cursor") as string) || 0;
+
+    return HttpResponse.json(
+      Array.from({ length: 10 }, (_, i) => ({
+        postId: cursor + i + 1,
+        User: User[0],
+        content: `${cursor + i + 1} Z.com is so marvelous. I'm gonna buy that.`,
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
+      }))
+    );
   }),
 ];

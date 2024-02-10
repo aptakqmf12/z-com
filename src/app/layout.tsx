@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MSWComponent from "./_component/MSWcomponent";
+import ReactQueryProvider from "./_component/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <MSWComponent />
+      <body className={inter.className}>
+        <ReactQueryProvider>
+          {children}
 
-      <body className={inter.className}>{children}</body>
+          <MSWComponent />
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }

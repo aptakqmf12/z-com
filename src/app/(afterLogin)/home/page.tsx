@@ -1,8 +1,8 @@
 import React from "react";
 import TabProvider from "./_component/tabProvider";
-import Tab from "./_component/tab";
+import PostTabs from "./_component/postTabs";
 import PostForm from "./_component/postForm";
-import PostCard from "../_component/postCard";
+import PostDivider from "./_component/postDivider";
 import styles from "./home.module.css";
 import {
   dehydrate,
@@ -10,42 +10,25 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { revalidatePath, revalidateTag } from "next/cache";
-
-async function fetchTest() {
-  const res = await fetch("http...", {
-    next: {
-      tags: ["a", "b"],
-    },
-    //cache: "no-store", -> 서버에서 저장(캐싱)하지 않겠다.
-  });
-
-  // revalidateTag("b") -> b 캐시를 지운다
-  // revalidatePath("/home") -> home 라우트의 모든 캐시를 지운다
-
-  if (!res.ok) {
-    throw new Error("error");
-  }
-
-  return res.json();
-}
+import { getRecommendedPosts } from "./_api/getPosts";
 
 export default async function Page() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({ queryKey: ["a", "b"], queryFn: fetchTest });
+  await queryClient.prefetchQuery({
+    queryKey: ["posts", "followings"],
+    queryFn: () => getRecommendedPosts({ pageParam: 1 }),
+  });
   const dehydratedState = dehydrate(queryClient);
+
   return (
     <HydrationBoundary state={dehydratedState}>
       <TabProvider>
         <div className={styles.container}>
-          <Tab />
+          <PostTabs />
 
           <PostForm />
 
-          <ul className={styles.postList}>
-            {Array.from({ length: 200 }).map((_, i) => (
-              <PostCard key={i} />
-            ))}
-          </ul>
+          <PostDivider />
         </div>
       </TabProvider>
     </HydrationBoundary>

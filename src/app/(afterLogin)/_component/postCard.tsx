@@ -7,11 +7,18 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { faker } from "@faker-js/faker";
+import { User } from "@/types";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
 
-export default function PostCard() {
+export default function PostCard({
+  user,
+  Images,
+  postId,
+  content,
+  createdAt,
+}: User) {
   const router = useRouter();
 
   const handleClickWrapper = () => {
@@ -26,11 +33,17 @@ export default function PostCard() {
       <div className={styles.top}>
         <div className="flex_row">
           <div className={styles.thumb}>
-            <Image src={"/profile.png"} width={20} height={20} alt="profile" />
+            <Image
+              src={user?.image || "/profile.png"}
+              width={20}
+              height={20}
+              alt="profile"
+            />
           </div>
 
           <div className={styles.creator} onClick={handleClickCreator}>
-            {faker.person.fullName()}
+            {/* {faker.person.fullName()} */}
+            {user?.nickname}
           </div>
 
           <div className={styles.time}>
@@ -38,6 +51,8 @@ export default function PostCard() {
           </div>
         </div>
       </div>
+
+      <div>{content}</div>
 
       <div className={styles.contentImage}>
         <Image
